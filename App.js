@@ -1,5 +1,11 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import {
+  KeyboardAvoidingView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import NewTask from "./components/NewTask";
 import Task from "./components/Task";
 
@@ -8,13 +14,14 @@ export default function App() {
     <View style={styles.container}>
       <View style={styles.tasksWrapper}>
         <Text style={styles.sectionTitle}>Today's Tasks</Text>
+
+        <View style={styles.items}>
+          <Task text=" Learn React JS" />
+          <Task text=" Learn React Native" />
+        </View>
       </View>
-      <View style={styles.items}>
-        <Task text=" Learn React JS" />
-        <Task text=" Learn React Native" />
-      </View>
-      <NewTask text="Add New Task" />
-      <StatusBar style="auto" />
+
+      <NewTask />
     </View>
   );
 }
