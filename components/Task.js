@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
+import Checkbox from "expo-checkbox";
 
 const Task = (props) => {
+  const [isSelected, setisSelected] = useState(false);
   return (
     <View style={styles.item}>
       <View style={styles.itemLeft}>
-        <View style={styles.square}></View>
+        <Checkbox
+          style={styles.square}
+          disabled={false}
+          value={isSelected}
+          onValueChange={(newValue) => setisSelected(newValue)}
+        ></Checkbox>
         <Text style={styles.itemText}>{props.text}</Text>
       </View>
       <View style={styles.circular}></View>
@@ -32,7 +39,7 @@ const styles = StyleSheet.create({
   square: {
     width: 24,
     height: 24,
-    backgroundColor: "#55BCF6",
+    backgroundColor: "#FFF",
     opacity: 0.4,
     borderRadius: 5,
     marginRight: 15,
